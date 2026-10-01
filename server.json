@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.saybriefly/saybriefly",
+  "title": "SayBriefly",
+  "description": "Read, search and ask about your SayBriefly meetings: recaps, decisions, action items, transcripts.",
+  "version": "1.0.1",
+  "websiteUrl": "https://saybriefly.com",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.saybriefly.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer sbk_... personal key. Create it in SayBriefly: Settings, Integrations, Connect your AI.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
