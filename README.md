@@ -2,7 +2,7 @@
 
 # SayBriefly MCP server
 
-[SayBriefly](https://saybriefly.com) helps freelancers and studios deliver what was agreed and stop scope creep. It turns client meetings and email into tasks and one to-do list, and checks every new request against the locked project brief.
+[SayBriefly](https://saybriefly.com) helps freelancers and studios deliver what was agreed and stop scope creep. It is one app for client work: an AI notetaker that records calls on Mac or Windows with no bot joining, project boards and locked briefs, a to-do list fed by meetings, Gmail and Slack when you switch them on, a calendar with booking links so clients can schedule time, a Pomodoro focus timer, and dictation that types anywhere. Every new request is checked against the brief, so you always know what was agreed and what just changed.
 
 This server lets Claude, ChatGPT, Cursor, Cline or any MCP client read that work: ask what a client agreed to, what changed since the last call, or whether a new request is in the brief.
 
