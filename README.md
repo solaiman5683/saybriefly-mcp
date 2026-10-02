@@ -2,7 +2,9 @@
 
 # SayBriefly MCP server
 
-Ask Claude, ChatGPT, Cursor, Cline or any MCP client about your work in [SayBriefly](https://saybriefly.com): your recorded meetings, transcripts, decisions, action items and to-dos.
+[SayBriefly](https://saybriefly.com) helps freelancers and studios deliver what was agreed and stop scope creep. It turns client meetings and email into tasks and one to-do list, and checks every new request against the locked project brief.
+
+This server lets Claude, ChatGPT, Cursor, Cline or any MCP client read that work: ask what a client agreed to, what changed since the last call, or whether a new request is in the brief.
 
 This is a **hosted (remote) MCP server**. There is nothing to install or run: you connect to a URL and sign in.
 
