@@ -1,0 +1,170 @@
+{
+  "author": "SayBriefly",
+  "authorUrl": "https://saybriefly.com",
+  "cloudEndpoint": "https://mcp.saybriefly.com/mcp",
+  "description": "Know what was agreed with every client: meetings, decisions, to-dos and briefs from SayBriefly. Read-only.",
+  "homepage": "https://saybriefly.com/mcp",
+  "icon": "https://raw.githubusercontent.com/solaiman5683/saybriefly-mcp/main/logo-400.png",
+  "identifier": "solaiman5683-saybriefly-mcp",
+  "name": "SayBriefly",
+  "prompts": [],
+  "resources": [],
+  "tags": [
+    "meetings",
+    "notetaker",
+    "transcripts",
+    "to-do",
+    "scope-creep",
+    "freelancers",
+    "productivity",
+    "project-management"
+  ],
+  "tools": [
+    {
+      "name": "list_meetings",
+      "description": "List the user's recorded meetings, newest first. Filter by date range or a word in the title. Returns meeting_id, title, date, platform and whether a summary exists.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Start date YYYY-MM-DD (inclusive)"
+          },
+          "to": {
+            "type": "string",
+            "description": "End date YYYY-MM-DD (inclusive)"
+          },
+          "title": {
+            "type": "string",
+            "description": "Only meetings whose title contains this text"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results, default 25, max 200"
+          }
+        }
+      },
+      "annotations": {
+        "title": "List meetings",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_meeting",
+      "description": "Get one meeting in full: summary, key decisions, action items and what changed since the last call. Set include_transcript to true to also get the full transcript with speakers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "meeting_id": {
+            "type": "string",
+            "description": "meeting_id from list_meetings"
+          },
+          "include_transcript": {
+            "type": "boolean",
+            "description": "Include the full transcript (default false)"
+          }
+        },
+        "required": [
+          "meeting_id"
+        ]
+      },
+      "annotations": {
+        "title": "Get meeting",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "search_meetings",
+      "description": "Find meetings where a word or phrase was said or appears in the summary. Returns matching meetings with the exact lines.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Word or phrase to find"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max meetings, default 10"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "annotations": {
+        "title": "Search meetings",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "list_todos",
+      "description": "List the user's to-dos exactly as the SayBriefly To-Do list shows them (their own items in their workspace). Use for 'what is on my plate', 'what is due this week', 'open tasks for project X'. Returns id, title, status, due date, priority, project name and source (email, meeting, manual...).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "done",
+              "all"
+            ],
+            "description": "open (default), done or all"
+          },
+          "due_before": {
+            "type": "string",
+            "description": "Only to-dos due on or before this date YYYY-MM-DD"
+          },
+          "project": {
+            "type": "string",
+            "description": "Only to-dos whose project name contains this text"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results, default 25, max 100"
+          }
+        }
+      },
+      "annotations": {
+        "title": "List to-dos",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ask",
+      "description": "Ask SayBriefly's agent a question answered from the user's meetings, email, tasks and projects (for example: what did the client agree last week, what is still open for Acme). Read-only.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "question"
+        ]
+      },
+      "annotations": {
+        "title": "Ask SayBriefly",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      }
+    }
+  ],
+  "version": "1.0.2"
+}
