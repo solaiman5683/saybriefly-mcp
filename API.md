@@ -3,7 +3,7 @@
 The SayBriefly REST API powers the Zapier integration (and other automation tools). It gives you your
 own SayBriefly meeting recaps and to-dos as JSON, and lets you add to-dos.
 
-**Base URL:** `https://api.saybriefly.com/v1`
+**Base URL:** `https://public-api.saybriefly.com/v1`
 
 ## Authentication
 
@@ -103,7 +103,7 @@ JSON `{ "error": "message" }` with:
 ## Example
 
 ```bash
-curl -H "Authorization: Bearer sbk_..." "https://api.saybriefly.com/v1/meetings?limit=5"
+curl -H "Authorization: Bearer sbk_..." "https://public-api.saybriefly.com/v1/meetings?limit=5"
 ```
 
 ## Support
